@@ -1,0 +1,13 @@
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow direct access to existing files & api folder
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route request to index.php
+    RewriteRule ^ index.php [L]
+</IfModule>
